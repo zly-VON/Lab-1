@@ -377,6 +377,16 @@ void Load_Game()  //load the last saved game
 
 void Exit_Game()  //clode the game and program
 {
+    struct Node* temp = head;
+    struct Node* next = NULL;
+    while (temp != NULL)
+    {
+        next = temp->next;
+        free(temp);
+    	temp = next;
+    }
+    head = NULL;
+    
     printf("Closing game...\n\n");
     exit(0);
 }
